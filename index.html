@@ -3,28 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Solucionarte Publicidad | CDMX</title>
+    <title>Solucionarte Publicidad | Expertos en Impresión</title>
     <link rel="icon" type="image/png" href="Favicon 150px-01.png">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@300;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
+    
     <style>
         :root {
             --neon-magenta: #ff00ff;
             --neon-green: #39ff14;
             --dark-bg: #0a0a0c;
+            --text-gray: #b0b0b0;
         }
+
+        * { box-sizing: border-box; }
 
         body {
             margin: 0;
             font-family: 'Rajdhani', sans-serif;
             background-color: var(--dark-bg);
             color: white;
-            scroll-behavior: smooth;
+            line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        /* Hero Section */
+        /* Hero Section con Banner */
         header {
-            height: 80vh;
-            background: linear-gradient(rgba(10, 10, 12, 0.7), var(--dark-bg)), url('banner-01.png');
+            height: 90vh;
+            background: linear-gradient(rgba(10, 10, 12, 0.8), rgba(10, 10, 12, 0.9)), url('banner-01.png');
             background-size: cover;
             background-position: center;
             display: flex;
@@ -32,137 +37,213 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            border-bottom: 3px solid var(--neon-magenta);
+            border-bottom: 4px solid var(--neon-magenta);
+            padding: 20px;
         }
 
+        /* Ajuste del Logotipo */
         .logo-main {
-            width: 280px; /* Tamaño optimizado */
+            width: 100%;
+            max-width: 450px; /* Tamaño optimizado para que luzca bien */
             height: auto;
-            margin-bottom: 20px;
-            filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.5));
+            margin-bottom: 10px;
+            filter: drop-shadow(0 0 15px rgba(255, 0, 255, 0.3));
         }
 
-        /* Slider de Texto */
-        .slider-container {
-            height: 40px;
-            overflow: hidden;
-            margin-top: 15px;
-        }
-
-        .slider-text {
-            display: block;
+        h1 {
             font-family: 'Orbitron', sans-serif;
-            font-size: 1.5rem;
-            color: var(--neon-green);
-            text-shadow: 0 0 10px var(--neon-green);
-            animation: slide 10s infinite;
+            font-size: 2.5rem;
+            margin: 10px 0;
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px var(--neon-magenta);
         }
 
-        @keyframes slide {
+        /* Slider de Servicios */
+        .slider-box {
+            height: 50px;
+            overflow: hidden;
+            margin-top: 10px;
+        }
+
+        .slider-content {
+            display: flex;
+            flex-direction: column;
+            animation: slide-up 12s cubic-bezier(0.645, 0.045, 0.355, 1) infinite;
+        }
+
+        .service-item {
+            height: 50px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            color: var(--neon-green);
+            text-transform: uppercase;
+            text-shadow: 0 0 8px var(--neon-green);
+        }
+
+        @keyframes slide-up {
             0%, 20% { transform: translateY(0); }
-            25%, 45% { transform: translateY(-40px); }
-            50%, 70% { transform: translateY(-80px); }
-            75%, 95% { transform: translateY(-120px); }
+            25%, 45% { transform: translateY(-50px); }
+            50%, 70% { transform: translateY(-100px); }
+            75%, 95% { transform: translateY(-150px); }
             100% { transform: translateY(0); }
         }
 
-        /* Estilos del Formulario */
-        .contact-form {
-            max-width: 600px;
-            margin: 50px auto;
-            background: rgba(255, 255, 255, 0.05);
-            padding: 30px;
-            border-radius: 15px;
-            border: 1px solid var(--neon-green);
+        /* Galería */
+        .section-title {
+            text-align: center;
+            font-family: 'Orbitron', sans-serif;
+            color: var(--neon-green);
+            margin: 60px 0 30px;
+            font-size: 2rem;
         }
+
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 0 10%;
+            margin-bottom: 80px;
+        }
+
+        .gallery-item {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 10px;
+            border: 2px solid #222;
+            transition: 0.4s;
+            cursor: pointer;
+        }
+
+        .gallery-item:hover {
+            border-color: var(--neon-magenta);
+            transform: scale(1.03);
+            box-shadow: 0 0 20px var(--neon-magenta);
+        }
+
+        /* Formulario de Contacto */
+        .contact-section {
+            background: #111;
+            padding: 60px 10%;
+            border-top: 2px solid var(--neon-green);
+        }
+
+        .form-card {
+            max-width: 600px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.03);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid #333;
+        }
+
+        .form-group { margin-bottom: 20px; }
+
+        label { display: block; margin-bottom: 8px; color: var(--neon-green); font-weight: 600; }
 
         input, textarea {
             width: 100%;
             padding: 12px;
-            margin: 10px 0;
-            background: #222;
+            background: #1a1a1a;
             border: 1px solid #444;
             color: white;
-            border-radius: 5px;
+            border-radius: 8px;
             font-family: 'Rajdhani', sans-serif;
+            font-size: 1rem;
         }
 
         input:focus, textarea:focus {
-            border-color: var(--neon-magenta);
             outline: none;
+            border-color: var(--neon-magenta);
+            box-shadow: 0 0 10px rgba(255, 0, 255, 0.2);
         }
 
-        .btn-send {
+        .btn-submit {
+            width: 100%;
+            padding: 15px;
             background: var(--neon-magenta);
             color: white;
             border: none;
-            padding: 15px 30px;
-            width: 100%;
-            cursor: pointer;
-            font-weight: bold;
-            text-transform: uppercase;
-            transition: 0.3s;
-        }
-
-        .btn-send:hover {
-            box-shadow: 0 0 20px var(--neon-magenta);
-            transform: scale(1.02);
-        }
-
-        /* Grid de Galería */
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 15px;
-            padding: 20px;
-        }
-
-        .gallery img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
             border-radius: 8px;
-            border: 1px solid var(--neon-magenta);
+            font-family: 'Orbitron', sans-serif;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+            text-transform: uppercase;
+        }
+
+        .btn-submit:hover {
+            background: #d400d4;
+            box-shadow: 0 0 25px var(--neon-magenta);
+            transform: translateY(-2px);
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            font-size: 0.9rem;
+            color: var(--text-gray);
+        }
+
+        /* Móvil */
+        @media (max-width: 768px) {
+            h1 { font-size: 1.8rem; }
+            .service-item { font-size: 1.2rem; }
+            .logo-main { max-width: 280px; }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <img src="Logotipo.png" alt="Solucionarte Publicidad" class="logo-main">
-        <h1 style="font-family: 'Orbitron'; letter-spacing: 3px;">SOLUCIONARTE PUBLICIDAD</h1>
+        <img src="Logotipo500x500px-01.png" alt="Solucionarte Publicidad Logo" class="logo-main">
+        <h1>SOLUCIONARTE PUBLICIDAD</h1>
         
-        <div class="slider-container">
-            <span class="slider-text">DTF Textil</span>
-            <span class="slider-text">Impresión en rígidos</span>
-            <span class="slider-text">Lona gran formato</span>
-            <span class="slider-text">Letras 3D</span>
+        <div class="slider-box">
+            <div class="slider-content">
+                <div class="service-item">DTF Textil</div>
+                <div class="service-item">Impresión en rígidos</div>
+                <div class="service-item">Lona gran formato</div>
+                <div class="service-item">Letras 3D</div>
+            </div>
         </div>
     </header>
 
-    <div style="padding: 50px 10%;">
-        <h2 style="text-align: center; color: var(--neon-green); font-family: 'Orbitron';">NUESTRA GALERÍA</h2>
-        <div class="gallery">
-            <img src="imagendegaleria-01.png">
-            <img src="imagendegaleria-02.png">
-            <img src="imagendegaleria-03.png">
-            <img src="imagendegaleria-04.png">
-            <img src="imagendegaleria-05.png">
-            <img src="imagendegaleria-06.png">
-        </div>
-
-        <h2 style="text-align: center; color: var(--neon-magenta); font-family: 'Orbitron'; margin-top: 80px;">CONTÁCTANOS</h2>
-        <form action="https://formspree.io/f/solucionarte72@gmail.com" method="POST" class="contact-form">
-            <input type="text" name="nombre" placeholder="Tu Nombre" required>
-            <input type="email" name="email" placeholder="Tu Correo Electrónico" required>
-            <textarea name="mensaje" rows="5" placeholder="¿En qué podemos ayudarte?" required></textarea>
-            <button type="submit" class="btn-send">Enviar Mensaje</button>
-        </form>
+    <h2 class="section-title">NUESTROS TRABAJOS</h2>
+    <div class="gallery-container">
+        <img src="imagendegaleria-01.png" class="gallery-item" alt="Trabajo Solucionarte">
+        <img src="imagendegaleria-02.png" class="gallery-item" alt="Trabajo Solucionarte">
+        <img src="imagendegaleria-03.png" class="gallery-item" alt="Trabajo Solucionarte">
+        <img src="imagendegaleria-04.png" class="gallery-item" alt="Trabajo Solucionarte">
+        <img src="imagendegaleria-05.png" class="gallery-item" alt="Trabajo Solucionarte">
+        <img src="imagendegaleria-06.png" class="gallery-item" alt="Trabajo Solucionarte">
+        <img src="imagendegaleria-07.png" class="gallery-item" alt="Trabajo Solucionarte">
     </div>
 
-    <footer style="text-align: center; padding: 40px; background: #000; font-size: 0.9rem;">
-        <p>Juan Hernández y Dávalos 72-E Col. Algarín, CDMX | 06880</p>
-        <p>&copy; 2026 Solucionarte Publicidad</p>
+    <section class="contact-section">
+        <h2 class="section-title" style="margin-top: 0;">COTIZA TU PROYECTO</h2>
+        <div class="form-card">
+            <form action="https://formspree.io/f/solucionarte72@gmail.com" method="POST">
+                <div class="form-group">
+                    <label>Nombre Completo</label>
+                    <input type="text" name="name" required placeholder="Ej. Juan Pérez">
+                </div>
+                <div class="form-group">
+                    <label>Correo Electrónico</label>
+                    <input type="email" name="_replyto" required placeholder="correo@ejemplo.com">
+                </div>
+                <div class="form-group">
+                    <label>¿Qué servicio necesitas?</label>
+                    <textarea name="message" rows="4" required placeholder="Cuéntanos los detalles de tu pedido..."></textarea>
+                </div>
+                <button type="submit" class="btn-submit">Enviar Cotización</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>📍 Juan Hernández y Dávalos 72-E Col. Algarín, Ciudad de México, 06880</p>
+        <p>© 2026 Solucionarte Publicidad. Todos los derechos reservados.</p>
     </footer>
 
 </body>
