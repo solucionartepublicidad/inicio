@@ -18,6 +18,7 @@
 
         body {
             margin: 0;
+            padding-top: 80px; /* Espacio para la barra fija */
             font-family: 'Rajdhani', sans-serif;
             background-color: var(--dark-bg);
             color: white;
@@ -25,35 +26,43 @@
             scroll-behavior: smooth;
         }
 
-        /* --- CABECERA ÚNICA --- */
+        /* --- BARRA SUPERIOR (NAVBAR) --- */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 80px;
+            background: rgba(10, 10, 12, 0.95);
+            display: flex;
+            align-items: center;
+            padding: 0 5%;
+            border-bottom: 2px solid var(--neon-magenta);
+            z-index: 1000;
+            box-shadow: 0 0 15px rgba(255, 0, 255, 0.3);
+        }
+
+        .nav-logo {
+            height: 60px; /* Tamaño pequeño arriba a la izquierda */
+            width: auto;
+            transition: 0.3s;
+        }
+
+        /* --- HEADER CON SLIDER CENTRADO --- */
         header {
-            height: 90vh;
-            background: linear-gradient(rgba(10, 10, 12, 0.8), rgba(10, 10, 12, 0.9)), url('banner-01.png');
+            height: 60vh;
+            background: linear-gradient(rgba(10, 10, 12, 0.7), rgba(10, 10, 12, 0.8)), url('banner-01.png');
             background-size: cover;
             background-position: center;
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            border-bottom: 4px solid var(--neon-magenta);
-            padding: 20px;
         }
 
-        .logo-container img {
-            width: 100%;
-            max-width: 400px; /* Tamaño ideal */
-            height: auto;
-            display: block;
-            margin: 0 auto 20px;
-            filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.15));
-        }
-
-        /* Slider de Servicios */
         .slider-box {
-            height: 60px;
+            height: 70px;
             overflow: hidden;
-            margin-top: 10px;
         }
 
         .slider-content {
@@ -63,12 +72,12 @@
         }
 
         .service-item {
-            height: 60px;
+            height: 70px;
             font-family: 'Orbitron', sans-serif;
-            font-size: clamp(1.2rem, 5vw, 2.2rem);
+            font-size: clamp(1.5rem, 6vw, 3rem);
             color: var(--neon-green);
             text-transform: uppercase;
-            text-shadow: 0 0 10px var(--neon-green);
+            text-shadow: 0 0 15px var(--neon-green);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -76,20 +85,19 @@
 
         @keyframes slide-up {
             0%, 20% { transform: translateY(0); }
-            25%, 45% { transform: translateY(-60px); }
-            50%, 70% { transform: translateY(-120px); }
-            75%, 95% { transform: translateY(-180px); }
+            25%, 45% { transform: translateY(-70px); }
+            50%, 70% { transform: translateY(-140px); }
+            75%, 95% { transform: translateY(-210px); }
             100% { transform: translateY(0); }
         }
 
-        /* --- SECCIONES --- */
+        /* --- GALERÍA --- */
         .section-title {
             text-align: center;
             font-family: 'Orbitron', sans-serif;
             color: var(--neon-green);
             margin: 60px 0 30px;
             font-size: 2rem;
-            letter-spacing: 2px;
         }
 
         .gallery-container {
@@ -106,121 +114,72 @@
             object-fit: cover;
             border-radius: 10px;
             border: 2px solid var(--neon-magenta);
-            transition: 0.3s ease;
         }
 
-        .gallery-item:hover {
-            transform: scale(1.03);
-            box-shadow: 0 0 20px var(--neon-magenta);
-        }
-
-        /* Mapa con efecto neón */
+        /* --- MAPA --- */
         .map-container {
             width: 100%;
-            height: 450px;
-            border-top: 3px solid var(--neon-magenta);
-            border-bottom: 3px solid var(--neon-magenta);
-            background: #000;
+            height: 400px;
+            border-top: 2px solid var(--neon-magenta);
+            border-bottom: 2px solid var(--neon-magenta);
         }
 
         .map-container iframe {
-            width: 100%;
-            height: 100%;
-            border: 0;
-            filter: invert(90%) hue-rotate(180deg) brightness(0.8);
+            width: 100%; height: 100%; border: 0;
+            filter: invert(90%) hue-rotate(180deg);
         }
 
-        /* Formulario */
+        /* --- FORMULARIO --- */
         .contact-section {
-            background: #0f0f12;
-            padding: 80px 10%;
+            background: #111;
+            padding: 60px 10%;
             border-top: 2px solid var(--neon-green);
         }
 
         .form-card {
             max-width: 550px;
             margin: 0 auto;
-            background: rgba(255, 255, 255, 0.03);
-            padding: 40px;
-            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.02);
+            padding: 30px;
+            border-radius: 15px;
             border: 1px solid #333;
         }
 
         input, textarea {
-            width: 100%;
-            padding: 15px;
-            margin-bottom: 20px;
-            background: #1a1a1a;
-            border: 1px solid #444;
-            color: white;
-            border-radius: 8px;
-            font-family: 'Rajdhani';
-            font-size: 1rem;
-        }
-
-        input:focus, textarea:focus {
-            outline: none;
-            border-color: var(--neon-magenta);
+            width: 100%; padding: 12px; margin-bottom: 15px;
+            background: #1a1a1a; border: 1px solid #444;
+            color: white; border-radius: 5px; font-family: 'Rajdhani';
         }
 
         .btn-submit {
-            width: 100%;
-            padding: 18px;
-            background: var(--neon-magenta);
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-family: 'Orbitron';
-            font-weight: bold;
-            cursor: pointer;
-            text-transform: uppercase;
-            transition: 0.3s;
+            width: 100%; padding: 15px;
+            background: var(--neon-magenta); color: white;
+            border: none; font-family: 'Orbitron'; cursor: pointer;
         }
 
-        .btn-submit:hover {
-            box-shadow: 0 0 20px var(--neon-magenta);
-            transform: translateY(-2px);
-        }
-
-        /* Botón WhatsApp */
+        /* WhatsApp */
         .wa-link {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: #25d366;
-            width: 65px;
-            height: 65px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 1000;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
-            transition: 0.3s;
+            position: fixed; bottom: 25px; right: 25px;
+            background: #25d366; width: 60px; height: 60px;
+            border-radius: 50%; display: flex; align-items: center;
+            justify-content: center; z-index: 1000;
         }
 
-        .wa-link:hover { transform: scale(1.1); }
-
-        footer {
-            text-align: center;
-            padding: 50px;
-            background: #000;
-            color: #777;
-            border-top: 1px solid #222;
-        }
+        footer { text-align: center; padding: 30px; background: #000; font-size: 0.9rem; }
     </style>
 </head>
 <body>
 
+    <nav>
+        <img id="mainLogo" src="Logotipo.png" class="nav-logo" alt="Solucionarte" 
+             onerror="this.onerror=null; this.src='Logotipo500x500px-01.png';">
+    </nav>
+
     <a href="https://wa.me/525638863684" class="wa-link" target="_blank">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" width="38" alt="WhatsApp">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" width="35">
     </a>
 
     <header>
-        <div class="logo-container">
-            <img src="Logotipo500x500px-01.png" alt="Solucionarte Logo">
-        </div>
-        
         <div class="slider-box">
             <div class="slider-content">
                 <div class="service-item">DTF Textil</div>
@@ -245,26 +204,26 @@
     <h2 class="section-title">UBICACIÓN</h2>
     <div class="map-container">
         <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3763.15344405389!2d-99.1377855!3d19.4057863!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1fec7d7c3abd7%3A0x2888b9905a94534f!2sJuan%20E.%20Hern%C3%A1ndez%20y%20Davalos%2072%2C%20Algar%C3%ADn%2C%20Cuauht%C3%A9moc%2C%2006880%20Ciudad%20de%20M%C3%A9xico%2C%20CDMX!5e0!3m2!1ses-419!2smx!4v1700000000000!5m2!1ses-419!2smx" 
+            src="http://googleusercontent.com/maps.google.com/8" 
             allowfullscreen="" loading="lazy">
         </iframe>
     </div>
 
     <section class="contact-section">
-        <h2 class="section-title" style="margin-top: 0;">COTIZA TU PROYECTO</h2>
+        <h2 class="section-title" style="margin-top: 0;">COTIZA AHORA</h2>
         <div class="form-card">
             <form action="https://formspree.io/f/solucionarte72@gmail.com" method="POST">
-                <input type="text" name="name" placeholder="Tu Nombre completo" required>
-                <input type="email" name="_replyto" placeholder="Tu Correo electrónico" required>
-                <textarea name="message" rows="4" placeholder="¿Qué servicios necesitas cotizar?" required></textarea>
-                <button type="submit" class="btn-submit">Enviar a Solucionarte</button>
+                <input type="text" name="name" placeholder="Tu Nombre" required>
+                <input type="email" name="email" placeholder="Tu Correo" required>
+                <textarea name="message" rows="4" placeholder="¿Qué necesitas?" required></textarea>
+                <button type="submit" class="btn-submit">Enviar Datos</button>
             </form>
         </div>
     </section>
 
     <footer>
-        <p>📍 Juan Hernández y Dávalos 72-E, Col. Algarín, Ciudad de México, 06880</p>
-        <p>© 2026 Solucionarte Publicidad. Calidad que se nota.</p>
+        <p>📍 Juan Hernández y Dávalos 72-E Col. Algarín, CDMX</p>
+        <p>© 2026 Solucionarte Publicidad</p>
     </footer>
 
 </body>
