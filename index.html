@@ -26,207 +26,129 @@
             scroll-behavior: smooth;
         }
 
-        /* --- BARRA SUPERIOR (NAVBAR) --- */
+        /* --- BARRA SUPERIOR --- */
         nav {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 80px;
+            top: 0; left: 0; width: 100%; height: 80px;
             background: rgba(10, 10, 12, 0.95);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 5%;
-            border-bottom: 2px solid var(--neon-magenta);
-            z-index: 1000;
-            box-shadow: 0 0 15px rgba(255, 0, 255, 0.3);
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 0 5%; border-bottom: 2px solid var(--neon-magenta);
+            z-index: 1000; box-shadow: 0 0 15px rgba(255, 0, 255, 0.3);
         }
 
-        .nav-logo {
-            height: 60px;
-            width: auto;
-        }
+        .nav-logo { height: 60px; width: auto; }
 
-        .nav-links {
-            display: flex;
-            gap: 20px;
-        }
-
+        .nav-links { display: flex; gap: 20px; }
         .nav-links a {
-            color: white;
-            text-decoration: none;
-            font-family: 'Orbitron', sans-serif;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            transition: 0.3s;
+            color: white; text-decoration: none; font-family: 'Orbitron', sans-serif;
+            font-size: 0.9rem; font-weight: bold; transition: 0.3s;
         }
+        .nav-links a:hover { color: var(--neon-green); }
 
-        .nav-links a:hover {
-            color: var(--neon-green);
-            text-shadow: 0 0 8px var(--neon-green);
-        }
-
-        /* --- SECCIÓN HERO CON VIDEO Y SERVICIOS --- */
-        .hero-video-container {
-            position: relative;
+        /* --- SECCIÓN VIDEO (INICIO) --- */
+        .video-section {
             width: 100%;
-            overflow: hidden;
             line-height: 0;
             border-bottom: 2px solid var(--neon-magenta);
+            position: relative;
         }
 
-        video {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
+        video { width: 100%; height: auto; display: block; }
 
-        .video-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.2); /* Oscurece levemente el video */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            pointer-events: none;
-        }
-
-        .slider-box {
-            height: 70px;
-            overflow: hidden;
+        /* --- SECCIÓN SERVICIOS (ESTRUCTURA CAPTURA) --- */
+        .services-section {
+            padding: 60px 5%;
             text-align: center;
         }
 
-        .slider-content {
-            display: flex;
-            flex-direction: column;
-            animation: slide-up 10s cubic-bezier(0.645, 0.045, 0.355, 1) infinite;
-        }
-
-        .service-item {
-            height: 70px;
+        .services-title {
             font-family: 'Orbitron', sans-serif;
-            font-size: clamp(1.2rem, 5vw, 3.5rem);
-            color: var(--neon-green);
-            text-transform: uppercase;
-            text-shadow: 0 0 20px var(--neon-green), 0 0 10px rgba(0,0,0,0.8);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        @keyframes slide-up {
-            0%, 20% { transform: translateY(0); }
-            25%, 45% { transform: translateY(-70px); }
-            50%, 70% { transform: translateY(-140px); }
-            75%, 95% { transform: translateY(-210px); }
-            100% { transform: translateY(0); }
-        }
-
-        /* --- SECCIONES --- */
-        section { scroll-margin-top: 80px; }
-
-        .section-title {
-            text-align: center;
-            font-family: 'Orbitron', sans-serif;
-            color: var(--neon-green);
-            margin: 60px 0 30px;
-            font-size: 2rem;
+            font-size: 3rem;
+            color: white;
+            margin-bottom: 50px;
             text-transform: uppercase;
         }
 
-        /* --- GALERÍA --- */
-        .gallery-container {
+        .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 15px;
-            padding: 0 8%;
-            margin-bottom: 60px;
-        }
-
-        .gallery-item {
-            width: 100%;
-            height: 280px;
-            object-fit: cover;
-            border-radius: 10px;
-            border: 2px solid var(--neon-magenta);
-            transition: 0.3s;
-        }
-
-        .gallery-item:hover {
-            transform: scale(1.03);
-            box-shadow: 0 0 15px var(--neon-magenta);
-        }
-
-        /* --- MAPA --- */
-        .map-container {
-            width: 100%;
-            height: 450px;
-            border-top: 2px solid var(--neon-magenta);
-            border-bottom: 2px solid var(--neon-magenta);
-            background: #000;
-        }
-
-        .map-container iframe {
-            width: 100%; height: 100%; border: 0;
-            filter: invert(90%) hue-rotate(180deg);
-        }
-
-        /* --- FORMULARIO --- */
-        .contact-section {
-            background: #0f0f11;
-            padding: 60px 10%;
-            border-top: 2px solid var(--neon-green);
-        }
-
-        .form-card {
-            max-width: 550px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            text-align: left;
+            max-width: 1200px;
             margin: 0 auto;
-            background: rgba(255, 255, 255, 0.02);
-            padding: 30px;
-            border-radius: 15px;
-            border: 1px solid #333;
         }
 
+        .service-column h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2rem;
+            color: white;
+            border-bottom: 3px solid var(--neon-magenta);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .service-column ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .service-column ul li {
+            font-size: 1.5rem;
+            font-weight: 700;
+            line-height: 1.4;
+            margin-bottom: 5px;
+            color: white;
+        }
+
+        /* --- GALERÍA, MAPA Y FORMULARIO --- */
+        section { scroll-margin-top: 80px; }
+        .section-title {
+            text-align: center; font-family: 'Orbitron', sans-serif;
+            color: var(--neon-green); margin: 60px 0 30px; font-size: 2rem;
+        }
+
+        .gallery-container {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 15px; padding: 0 8%; margin-bottom: 60px;
+        }
+        .gallery-item {
+            width: 100%; height: 280px; object-fit: cover;
+            border-radius: 10px; border: 2px solid var(--neon-magenta);
+        }
+
+        .map-container { width: 100%; height: 400px; border-top: 2px solid var(--neon-magenta); border-bottom: 2px solid var(--neon-magenta); }
+        .map-container iframe { 
+            width: 100%; height: 100%; border: 0; filter: invert(90%) hue-rotate(180deg); 
+        }
+
+        .contact-section { background: #111; padding: 60px 10%; border-top: 2px solid var(--neon-green); }
+        .form-card {
+            max-width: 550px; margin: 0 auto; background: rgba(255, 255, 255, 0.02);
+            padding: 30px; border-radius: 15px; border: 1px solid #333;
+        }
         input, textarea {
             width: 100%; padding: 12px; margin-bottom: 15px;
-            background: #1a1a1a; border: 1px solid #444;
-            color: white; border-radius: 5px; font-family: 'Rajdhani';
+            background: #1a1a1a; border: 1px solid #444; color: white; border-radius: 5px;
         }
-
         .btn-submit {
-            width: 100%; padding: 15px;
-            background: var(--neon-magenta); color: white;
+            width: 100%; padding: 15px; background: var(--neon-magenta); color: white;
             border: none; font-family: 'Orbitron'; cursor: pointer;
-            transition: 0.3s;
         }
 
-        .btn-submit:hover {
-            background: #d400d4;
-            box-shadow: 0 0 20px var(--neon-magenta);
-        }
-
-        /* WhatsApp */
         .wa-link {
             position: fixed; bottom: 25px; right: 25px;
-            background: #25d366; width: 60px; height: 60px;
-            border-radius: 50%; display: flex; align-items: center;
-            justify-content: center; z-index: 1000;
-            box-shadow: 0 0 15px rgba(0,0,0,0.3);
+            background: #25d366; width: 60px; height: 60px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center; z-index: 1000;
         }
 
-        footer { text-align: center; padding: 40px; background: #000; font-size: 0.9rem; }
+        footer { text-align: center; padding: 30px; background: #000; font-size: 0.9rem; }
     </style>
 </head>
 <body>
 
     <nav>
-        <img id="mainLogo" src="Logotipo.png" class="nav-logo" alt="Solucionarte" 
-             onerror="this.onerror=null; this.src='Logotipo500x500px-01.png';">
+        <img src="Logotipo.png" class="nav-logo" alt="Solucionarte" onerror="this.src='Logotipo500x500px-01.png';">
         <div class="nav-links">
             <a href="#inicio">Inicio</a>
             <a href="#servicios">Servicios</a>
@@ -236,56 +158,80 @@
     </nav>
 
     <a href="https://wa.me/525638863684" class="wa-link" target="_blank">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" width="35" alt="WhatsApp">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" width="35">
     </a>
 
-    <section id="inicio" class="hero-video-container">
+    <section id="inicio" class="video-section">
         <video autoplay muted loop playsinline>
             <source src="web.mp4" type="video/mp4">
-            Tu navegador no soporta video.
         </video>
-        <div class="video-overlay">
-            <div class="slider-box">
-                <div class="slider-content">
-                    <div class="service-item">DTF Textil</div>
-                    <div class="service-item">Impresión en rígidos</div>
-                    <div class="service-item">Lona gran formato</div>
-                    <div class="service-item">Letras 3D</div>
-                </div>
+    </section>
+
+    <section id="servicios" class="services-section">
+        <h2 class="services-title">Servicios</h2>
+        <div class="services-grid">
+            <div class="service-column">
+                <h3>Impresión</h3>
+                <ul>
+                    <li>Lona</li>
+                    <li>Gran formato</li>
+                    <li>DTF textil</li>
+                    <li>Coroplast</li>
+                    <li>Trovicel</li>
+                    <li>Vinil</li>
+                </ul>
+            </div>
+            <div class="service-column">
+                <h3>Productos</h3>
+                <ul>
+                    <li>Letras 3D</li>
+                    <li>Anuncios LED</li>
+                    <li>Playeras</li>
+                    <li>Gorras</li>
+                    <li>Tazas</li>
+                </ul>
+            </div>
+            <div class="service-column">
+                <h3>Publicidad</h3>
+                <ul>
+                    <li>Offset</li>
+                    <li>Impresión digital</li>
+                    <li>Volantes</li>
+                    <li>Tarjetas</li>
+                    <li>Tabloides</li>
+                </ul>
             </div>
         </div>
     </section>
 
-    <section id="servicios">
-        <h2 class="section-title">Nuestros Trabajos</h2>
-        <div class="gallery-container">
-            <img src="imagendegaleria-01.png" class="gallery-item">
-            <img src="imagendegaleria-02.png" class="gallery-item">
-            <img src="imagendegaleria-03.png" class="gallery-item">
-            <img src="imagendegaleria-04.png" class="gallery-item">
-            <img src="imagendegaleria-05.png" class="gallery-item">
-            <img src="imagendegaleria-06.png" class="gallery-item">
-            <img src="imagendegaleria-07.png" class="gallery-item">
-        </div>
-    </section>
+    <h2 class="section-title">NUESTROS TRABAJOS</h2>
+    <div class="gallery-container">
+        <img src="imagendegaleria-01.png" class="gallery-item">
+        <img src="imagendegaleria-02.png" class="gallery-item">
+        <img src="imagendegaleria-03.png" class="gallery-item">
+        <img src="imagendegaleria-04.png" class="gallery-item">
+        <img src="imagendegaleria-05.png" class="gallery-item">
+        <img src="imagendegaleria-06.png" class="gallery-item">
+        <img src="imagendegaleria-07.png" class="gallery-item">
+    </div>
 
     <section id="ubicacion">
-        <h2 class="section-title">Ubicación</h2>
+        <h2 class="section-title">UBICACIÓN</h2>
         <div class="map-container">
             <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3763.14152758151!2d-99.1384351!3d19.4052309!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1feda0319747d%3A0x6a0c0b898a96d299!2sJ.%20Hern%C3%A1ndez%20y%20D%C3%A1valos%2072%2C%20Algar%C3%ADn%2C%20Cuauht%C3%A9moc%2C%2006880%20Ciudad%20de%20M%C3%A9xico%2C%20CDMX!5e0!3m2!1ses!2smx!4v1700000000000" 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3763.153495471415!2d-99.1384076!3d19.4057863!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1fec7935f8e6b%3A0xc3f6089d71457102!2sJuan%20Hern%C3%A1ndez%20y%20D%C3%A1valos%2072%2C%20Algar%C3%ADn%2C%20Cuauht%C3%A9moc%2C%2006880%20Ciudad%20de%20M%C3%A9xico%2C%20CDMX!5e0!3m2!1ses-419!2smx!4v1700000000000" 
                 allowfullscreen="" loading="lazy">
             </iframe>
         </div>
     </section>
 
     <section id="contacto" class="contact-section">
-        <h2 class="section-title" style="margin-top: 0;">Cotiza Ahora</h2>
+        <h2 class="section-title" style="margin-top: 0;">COTIZA AHORA</h2>
         <div class="form-card">
             <form action="https://formspree.io/f/solucionarte72@gmail.com" method="POST">
                 <input type="text" name="name" placeholder="Tu Nombre" required>
                 <input type="email" name="email" placeholder="Tu Correo" required>
-                <textarea name="message" rows="4" placeholder="¿Qué servicios necesitas?" required></textarea>
+                <textarea name="message" rows="4" placeholder="¿Qué necesitas?" required></textarea>
                 <button type="submit" class="btn-submit">Enviar Datos</button>
             </form>
         </div>
@@ -293,7 +239,7 @@
 
     <footer>
         <p>📍 Juan Hernández y Dávalos 72-E Col. Algarín, CDMX</p>
-        <p>© 2026 Solucionarte Publicidad - Todos los derechos reservados</p>
+        <p>© 2026 Solucionarte Publicidad</p>
     </footer>
 
 </body>
